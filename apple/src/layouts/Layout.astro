@@ -1,0 +1,149 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="bg-slate-100">
+		<!-- Si se vuelve flexible el padre del header se va a poder aplicar una
+		alineación de forma vertical -->
+		<div class="bg-white h-16 flex items-center">
+			<!-- justify-between añade espacio de manera proporcional entre cada hijo -->
+			 <!-- container para que los elementos no se ubiquen en todo el borde del sitio -->
+			  <!-- mx-auto calcula el tamaño que tiene el contenedor que está limitado por el 6xl 
+			  y distribuye equitativamente el espacio a los lados haciendo que el contenedor quede centrado -->
+			<header class="flex justify-between container max-w-6xl mx-auto">
+				<h1> <span class="font-bold text-blue-600">H.</span><span>Phone</span></h1>
+				<menu>
+					<!-- space aplica margin right y left a los hijos de elemento menu -->
+					<ul class="space-x-5">
+						<!-- inline para que la lista se ubique de manera vertical -->
+						 <!-- border dotted para un borde punteado, border bottom para que solo se aplique en la parte de abajo -->
+						<li class="inline"><a href="#" class="text-blue-600 border-b-2 border-blue-600 border-dotted">Home</a></li>
+						<li class="inline"><a href="#">Shop</a></li>
+						<li class="inline"><a href="#">Product</a></li>
+						<li class="inline"><a href="#">Blog</a></li>
+						<li class="inline"><a href="#">Contact</a></li>
+					</ul>
+				</menu>
+				<div class="flex space-x-4">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+					  </svg>
+					  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+						<path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+					  </svg>
+					  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+					  </svg>
+				</div>
+			</header>
+		</div>
+		<!-- padding para que los elementos no queden pegados en el borde -->
+		<div class="bg-white p-5 rounded-xl shadow-slate-200 mt-6 max-w-6xl container mx-auto">
+			<div class="grid grid-cols-2 mt-10">
+				<!-- bg-cover cubre el area disponible con la imagen que insertamos de fondo -->
+				 <!-- se utilizan [] cuando necesitamos de valores arbitrarios que no son nativos en el lenguaje de tailwind -->
+				  <!-- bg-center para que la imagen crezca del centro hacia afuera y no desde la esquina superior izquierda
+				  como lo hace normalmente -->
+				  <!-- mx-auto para que la imagen se centre en su lado de la cuadricula -->
+				<div class="size-64 bg-[url(https://as-images.apple.com/is/MME73_AV2?wid=1000&hei=1000&fmt=jpeg&qlt=95&.v=1632861338000)] bg-[length:140%_140%] bg-center mx-auto">
+
+				</div>
+				<div>
+					<span class="font-semibold text-sm bg-slate-100 rounded-full px-3">New</span>
+					<h1 class="text-3xl font-semibold mt-2">Apple AirPods</h1>
+					<!-- color degradado en la capsula -->
+					<span class="bg-gradient-to-r from-blue-600 to-blue-400 text-white py-1 px-3 rounded-lg inline-block mt-3">
+						3rd Generation
+					</span>
+					<div class="flex mt-6 text-sm text-gray-700">
+						<!-- algunos elementos no reciben el margin debido a sus propiedades, se puede solucionar con un inline-block -->
+						<span class="bg-blue-50 w-3 rounded-full inline-block mr-2"></span>
+						<!-- con el 3/5 el texto solo toma el 60% del espacio que tiene disponible -->
+						<p class="w-3/5">Personalized Spatial Audio with dynamic head tracking places sound all around you</p>
+
+					</div>
+					
+				</div>
+				
+			</div>
+			<div class="shadow-md shadow-slate-100 h-12 flex justify-between items-center text-xs text-gray-600 py-3 px-6">
+				<div>
+					<p><span class="text-blue-600 font-bold">Wireless Earbuds</span> with Lightning Charging Case. Spatial Audio</p>
+				</div>
+				<div class="flex space-x-5">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+					</svg>
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+						<path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+					</svg>
+				</div>
+				  
+				  
+			</div>
+		</div>
+
+		<!-- gap es el espacio que esta entre las columnas -->
+		<div class="mt-12 container max-w-6xl mx-auto grid grid-cols-4 gap-6">
+			<div class="bg-white shadow rounded-lg shadow-slate-200 p-4">
+				<div class="size-48 bg-[url('https://m.media-amazon.com/images/I/61WnTqb1MrL.jpg')] bg-center bg-[length:100%_100%] mx-auto"></div>
+				<p class="text-blue-600 font-bold bg-slate-100 text-center py-1 rounded-lg">
+					3rd Generation
+				</p>
+			</div>
+			<div class="bg-white shadow rounded-lg shadow-slate-200 p-4">
+				<div class="size-48 bg-[url('https://tiendasishop.com/media/catalog/product/m/v/mv7n2lz_a_1.jpg')] bg-center bg-[length:100%_100%] mx-auto"></div>
+				<p class="text-blue-600 font-bold bg-slate-100 text-center py-1 rounded-lg">
+					AirPods
+				</p>
+			</div>
+			<div class="bg-white shadow rounded-lg shadow-slate-200 p-4">
+				<div class="size-48 bg-[url('https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MME73?wid=2000&hei=2000&fmt=jpeg&qlt=95&.v=1632861342000')] bg-center bg-[length:100%_100%] mx-auto"></div>
+				<p class="text-blue-600 font-bold bg-slate-100 text-center py-1 rounded-lg">
+					2nd Generation
+				</p>
+			</div>
+			<div class="bg-white shadow rounded-lg shadow-slate-200 p-4">
+				<div class="size-48 bg-[url('https://tiendasishop.com/media/catalog/product/8/1/81jkkfdbxjl._ac_sl1500_2048x.jpg')] bg-center bg-[length:100%_100%] mx-auto"></div>
+				<p class="text-blue-600 font-bold bg-slate-100 text-center py-1 rounded-lg">
+					Airpods Max
+				</p>
+			</div>
+		</div>
+
+		<h1 class="text-center text-3xl mt-8 font-semibold"><span class="text-blue-600">Newest</span> Product</h1>
+		<h3 class="text-center text-gray-600">Personalized Spatial Audio with dynamic head tracking places sound all around you</h3>
+
+		
+		<div class="bg-white h-14 flex items-center mt-10">
+			<footer class="container max-w-6xl mx-auto">
+				Apple Inc.2024
+			</footer>
+		</div>
+
+
+
+	
+
+
+
+
+
+		<!-- <slot /> -->
+	</body>
+</html>
+
